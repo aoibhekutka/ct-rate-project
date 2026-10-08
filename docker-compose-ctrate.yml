@@ -2,12 +2,15 @@ services:
   ct-rate:
     image: tivnan/recon:dev-v0.0.5
     container_name: ct-rate-project
+    user: "1005:1005"
     working_dir: /workspace
     environment:
       - PYTHONPATH=/workspace
+      - HOME=/workspace/home
     volumes:
       - /data/ct-rate:/workspace/data
       - ~/ct-rate-project:/workspace/src
+      - ~/.ctrate-home:/workspace/home
     deploy:
       resources:
         reservations:
