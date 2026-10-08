@@ -1,0 +1,18 @@
+services:
+  ct-rate:
+    image: tivnan/recon:dev-v0.0.5
+    container_name: ct-rate-project
+    working_dir: /workspace
+    environment:
+      - PYTHONPATH=/workspace
+    volumes:
+      - /data/ct-rate:/workspace/data
+      - ~/ct-rate-project:/workspace/src
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: tail -f /dev/null
