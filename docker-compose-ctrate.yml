@@ -2,6 +2,7 @@ services:
   ct-rate:
     image: tivnan/recon:dev-v0.0.5
     container_name: ct-rate-project
+    shm_size: '8gb'
     user: "1005:1005"
     working_dir: /workspace
     environment:
